@@ -1,0 +1,41 @@
+header {
+    background: url(Images/post-its.jpg) center ;
+    height: 60vh;
+    justify-content: center;
+    padding: 30px; 
+}
+
+h1 { 
+    padding-left: 60px;
+    color: darkred;
+}
+
+.slogan {
+    padding-left: 60px;
+    font-weight: 200;
+    line-height: 3;
+}
+
+h2 {
+    font-size: 1.3rem;
+    padding: 2rem;
+    text-align: center;
+    margin:auto;
+}
+
+label[for=newToDoText]{
+    padding-left:30px;
+    color:darkblue;
+    font-weight: 200   
+}
+
+
+/* not working */
+
+button[type=submit] {
+    color:darkred;
+}
+
+ footer.mdl-mini-footer {
+     text-align: right;
+ }

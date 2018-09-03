@@ -27,9 +27,10 @@ function onReady() {
             // Append the text to <button>
         deleteButton.appendChild(t);                           
         
- ///////       // tell the delete button to delete !!!!! This must be 'click,' not 'submit !!! Why?????? Is submit in reference to the fact that it takes input from somewhere whereas click is in reference to simply clicking on a button?
+ ///////// tell the delete button to delete !!!!! This must be 'click,' not 'submit !!! Why?????? Is submit in reference to the fact that it takes input from somewhere whereas click is in reference to simply clicking on a button?
         deleteButton.addEventListener('click', () => {
             toDoList.removeChild(newLi);
+            
             });
         
         //set the title: the new Li (created above) needs text from "title" (associated with the text (value) from the input of newToDoText)
@@ -48,6 +49,8 @@ function onReady() {
         newToDoText.value ='';
     });
 }
+
+//////// if you wanted to give the buttons seperate CSS properties, you'd have to add them selerately in HTML, right?
 
 window.onload = function() {
     onReady();

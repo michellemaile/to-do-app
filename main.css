@@ -1,41 +1,29 @@
-header {
-    background: url(Images/post-its.jpg) center ;
-    height: 60vh;
-    justify-content: center;
-    padding: 30px; 
-}
 
 h1 { 
-    padding-left: 60px;
+    margin: auto;
+    width: 50%;
+    text-align: center;
     color: darkred;
+    font-size: 400%;
+    padding:3%;
 }
 
-.slogan {
-    padding-left: 60px;
-    font-weight: 200;
-    line-height: 3;
+form{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    color:darkblue;
+    font-size: 100%;
+    font-weight: 200;   
 }
 
 h2 {
-    font-size: 1.3rem;
-    padding: 2rem;
-    text-align: center;
-    margin:auto;
+    padding-left: 10%;
+    font-size: 150%;
+    text-decoration: underline;
 }
 
-label[for=newToDoText]{
-    padding-left:30px;
-    color:darkblue;
-    font-weight: 200   
+ul {
+    list-style: none;
 }
 
-
-/* not working */
-
-button[type=submit] {
-    color:darkred;
-}
-
- footer.mdl-mini-footer {
-     text-align: right;
- }

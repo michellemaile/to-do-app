@@ -77,19 +77,23 @@ function onReady() {
             
             deleteButton.addEventListener ("click", event => {
                 event.preventDefault();
-                
-                
-            let updated = toDos.filter(val => {
+            });
+            
+            function deleteToDo(id) {
+                return toDos.filter(toDo => toDo.id !== id);
+                    }
+            
+//            let updated = toDos.filter(val => {
 //               for (var i = 0; i < toDos.length; i++){
-                if (toDo.id < i && id == i){
-                return true;
+//                if (toDo.id < i && id == i){
+//                return true;
 //               }else{
 //                    event.target.parentElement.remove()
 //                    toDo.removeChild(newLi); 
 //                }
-                    }
+//                    }
                  console.log(updated); 
-                });
+            
               
                 
                 // create a new function called removeItem //

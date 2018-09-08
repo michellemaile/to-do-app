@@ -1,10 +1,12 @@
 function onReady() {    
-    
     // create new variable named toDos and make it an array//
     const toDos = [];
 
     // create a new variable named addToDoForm which is a form <form id="addToDoForm"> (event listner below) //
     const addToDoForm = document.getElementById('addToDoForm');
+    
+    // (1) create a new variable that can be reassigned and set its value to zero -- what is this variable for?//
+    let id = 0;
 
     
     //create new function called createNewToDo //
@@ -13,17 +15,23 @@ function onReady() {
         //create new variable named newToDoText that grabs the element <label id=newToDoText> //
         const newToDoText = document.getElementById('newToDoText');
         
-//  //
-        if (!newToDoText.value) { return; }
+        // if there is not a value in newToDoText (which is the input box), return nothing //
+        if (!newToDoText.value) {return; }
     
         // call toDos (array that was defined above), push information to it: assign the value of the text input <form id="addToDoForm"> <input id=newToDoText> to the key "title" and create another key "complete" and initialize it to false //
         toDos.push({
             title: newToDoText.value,
-            complete: false
+            // what does this refer to? //
+            complete: false,
+            // (2) create a new property called id and store the value of the id variable, (3) incremented//
+            id: ++id
         });
     
         // clear the input (which HTML defined as text <input type="text") for the user by changing newToDoText to blank //
         newToDoText.value='';
+        
+        // needed for the filter method //
+        console.log(id);
         
         // call this function each time the state changes //
         renderTheUI();
@@ -39,12 +47,23 @@ function onReady() {
         
         //toDos is our array defined above. forEach() takes a function and applies it to each item in the array. In this case, render each to-do as a li in the ul //
         toDos.forEach(function(toDo){
-            // create a new li defined by newLi //
+            
+            // create a new li defined by newLi  -- why don't we have to assign the type to newLi like we do for checkbox and button//
             const newLi = document.createElement('li');
+            
             // create a new input called checkbox //
             const checkbox = document.createElement('input');
+            
+            // (4) create a new button called deleteButton, append it to newLi, register an event listener - to add//
+            const deleteButton = document.createElement('button');
+            
+            
             // checkbox is an input, set it's input type to checkbox //
             checkbox.type = "checkbox";
+            // why are these here and not in other version? - to add//
+            deleteButton.type = "button";
+            // change the text of the element - to add//
+            deleteButton.textContent = "Delete";
             
             // add the title text from toDo (defined when function was created) to newLi //
             newLi.textContent = toDo.title;
@@ -53,6 +72,12 @@ function onReady() {
             toDoList.appendChild(newLi);
             // add checkbox to the newLi //
             newLi.appendChild(checkbox);
+            // add deleteButton to newLi -to add//
+            newLi.appendChild(deleteButton);
+            
+     //       deleteButton.addEventListener ("click", event =>) {
+         //       toDoList.removeChild(newLi);
+           //     });
         });
     }
     
@@ -71,3 +96,5 @@ function onReady() {
 window.onload = function() {
   onReady();
 };
+
+// the four lines that have - to add are the 4 lines needed to add a button (not functional yet) //

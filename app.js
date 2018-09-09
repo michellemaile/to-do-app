@@ -16,7 +16,7 @@ function onReady() {
         const newToDoText = document.getElementById('newToDoText');
         
         // if there is not a value in newToDoText (which is the input box), return nothing //
-        if (!newToDoText.value) {return; }
+        if (!newToDoText.value) {return; };
     
         // call toDos (array that was defined above), push information to it: assign the value of the text input <form id="addToDoForm"> <input id=newToDoText> to the key "title" and create another key "complete" and initialize it to false //
         toDos.push({
@@ -35,7 +35,7 @@ function onReady() {
         
         // call this function each time the state changes //
         renderTheUI();
-    }
+    };
     
     // takes current state (toDos array) and render the UI
     function renderTheUI() {
@@ -75,13 +75,16 @@ function onReady() {
             // add deleteButton to newLi -to add//
             newLi.appendChild(deleteButton);
             
-            deleteButton.addEventListener ("click", event => {
+            deleteButton.addEventListener('click', () => {
                 event.preventDefault();
+                toDos = toDos.filter(function(currentToDo) {
+                    return currentToDo.id !== toDo.id
             });
+            });
+                renderTheUI();
+        });
             
-            function deleteToDo(id) {
-                return toDos.filter(toDo => toDo.id !== id);
-                    }
+            
             
 //            let updated = toDos.filter(val => {
 //               for (var i = 0; i < toDos.length; i++){
@@ -92,9 +95,7 @@ function onReady() {
 //                    toDo.removeChild(newLi); 
 //                }
 //                    }
-                 console.log(updated); 
-            
-              
+//                 console.log(updated); 
                 
                 // create a new function called removeItem //
 //                function removeItem() {
@@ -116,10 +117,6 @@ function onReady() {
                 // print the items in the toDo list array that remain after the filter titled removeItem //
 //                return toDos.filter(removeItem);
                 
-                renderTheUI()
-                });
-        });
-    }
     
     //add event listener to the submit event <button type="submit"> of the form element <form id="addToDoForm"> When the button which was defined as a submit form button is pushed, this happens: //
     addToDoForm.addEventListener('submit', event => {
@@ -131,10 +128,11 @@ function onReady() {
     
 // why is this here twice? //    
     renderTheUI();
+    }
 }
 
 window.onload = function() {
   onReady();
-};
+}
 
 // the four lines that have - to add are the 4 lines needed to add a button (not functional yet) //

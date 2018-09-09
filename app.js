@@ -16,15 +16,15 @@ function onReady() {
         const newToDoText = document.getElementById('newToDoText');
         
         // if there is not a value in newToDoText (which is the input box), return nothing //
-        if (!newToDoText.value) {return; };
+        if (!newToDoText.value) {return; }
     
         // call toDos (array that was defined above), push information to it: assign the value of the text input <form id="addToDoForm"> <input id=newToDoText> to the key "title" and create another key "complete" and initialize it to false //
         toDos.push({
             title: newToDoText.value,
             // what does this refer to? //
             complete: false,
-            // (2) create a new property called id and store the value of the id variable which will go up each time this function runs (incremented)//
-            id: id++
+            // (2) create a new property called id and store the value of the id variable, (3) incremented//
+            id: ++id
         });
     
         // clear the input (which HTML defined as text <input type="text") for the user by changing newToDoText to blank //
@@ -35,7 +35,7 @@ function onReady() {
         
         // call this function each time the state changes //
         renderTheUI();
-    };
+    }
     
     // takes current state (toDos array) and render the UI
     function renderTheUI() {
@@ -75,52 +75,32 @@ function onReady() {
             // add deleteButton to newLi -to add//
             newLi.appendChild(deleteButton);
             
-            deleteButton.addEventListener('click', () => {
-                event.preventDefault();
-                toDos = toDos.filter(function(currentToDo) {
-                    return currentToDo.id !== toDo.id
-            });
-            });
-                renderTheUI();
-        });
-            
-            
-            
-//            let updated = toDos.filter(val => {
-//               for (var i = 0; i < toDos.length; i++){
-//                if (toDo.id < i && id == i){
-//                return true;
-//               }else{
-//                    event.target.parentElement.remove()
-//                    toDo.removeChild(newLi); 
-//                }
-//                    }
-//                 console.log(updated); 
-                
+            deleteButton.addEventListener ("click", event => {
+                event.preventDefault ()
+          
                 // create a new function called removeItem //
-//                function removeItem() {
-                    // set the variable before the loop starts to 0, keep running this loop for the length of the toDos (condition for executing the code block), increase a value each time the code block in the loop has been executed (executed each time the code block has been executed) 
- //                   for (var i = 0; i < toDos.length; i++ ){
-                    // instructions say: use the .filter() array method, comparing toD0.id with the id of each item in the to-do list -- aren't they the same? i is the loop number correct?  //
-//                      if( toDo.id < i && id == i){
-//                            return true;
-                        // if it is false, remove the parentElement which is the li //
-//                        }else{
-//                            event.target.parentElement.remove()
-//                        }
-//                    }
-//                }
-               // console.log(removeItem());
-              //  console.log(toDo.id);
-              //  console.log(toDos.filter(removeItem));
-                
-                // print the items in the toDo list array that remain after the filter titled removeItem //
-//                return toDos.filter(removeItem);
-                
+                function removeItem(){
+                    // set the variable before the loop starts to 0, keep running this loop for the length of the toDos (condition for executing the code block), increase a value each time the code block in the loop has been executed (executed each time the code block has been executed) //
+                    for (var i = 0; i < toDos.length; i++ ){
+                        // // instructions say: use the .filter() array method, comparing toD0.id with the id of each item in the to-do list -- aren't they the same? i is the loop number correct?  //
+                        if( toDo.id < i && id == i){
+                            return true;
+                        // // if it is false, remove the parentElement which is the li //    
+                        }else{
+                            event.target.parentElement.remove()
+                        }
+                    }
+        }
+        return toDos.filter(removeItem);
+        renderTheUI()
+      });
+        
+    });
+    }
     
     //add event listener to the submit event <button type="submit"> of the form element <form id="addToDoForm"> When the button which was defined as a submit form button is pushed, this happens: //
     addToDoForm.addEventListener('submit', event => {
-        // don't do the default reloading the page //              
+        // don't do the default reloading the page //                         
         event.preventDefault();
         // do the function "createNewToDo" defined above //
         createNewToDo();                        
@@ -128,11 +108,10 @@ function onReady() {
     
 // why is this here twice? //    
     renderTheUI();
-    }
 }
 
 window.onload = function() {
   onReady();
-}
+};
 
 // the four lines that have - to add are the 4 lines needed to add a button (not functional yet) //

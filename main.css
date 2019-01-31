@@ -1,0 +1,29 @@
+
+h1 { 
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    color: darkred;
+    font-size: 400%;
+    padding:3%;
+}
+
+form{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    color:darkblue;
+    font-size: 100%;
+    font-weight: 200;   
+}
+
+h2 {
+    padding-left: 10%;
+    font-size: 150%;
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+}
+
